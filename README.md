@@ -136,7 +136,7 @@ See https://next.wifidownunder.com/documentation/start.html#architecture<br>
 
 
 ### <a name="files"> Important files </a>
-- UI/assets/js/main.js:32 is where the api_url/ location of backend server is defined.
+- UI/assets/js/proxy.js:8 is where the api_url/location of backend server is defined.
 - set_env.py sets the environment variables API_URL and SECURE
 - API/api.py is where the error log is created
 - apache_main.conf contains the Apache reverse proxy config
@@ -145,7 +145,6 @@ See https://next.wifidownunder.com/documentation/start.html#architecture<br>
 
 
 ### <a name="notes"> Notes /Issues </a>
-- UI/assets/js/main.js: Copyright symbol was removed due to encoding issues when trying to read the file in set_env.py
 - Some issues on Windows PC, so for now just use http instead of https: `RUN sed -i 's/https/http/' /etc/apk/repositories` (put this before `apk update`)
 - To run on Windows, change the line endings in start.sh from CRLF to LF before building the image
 - Setting up HTTPS for Windows? "Invalid mode" when volume mounting SSL certificate and key, using OpenSSL on Windows
