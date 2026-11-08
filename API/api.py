@@ -18,6 +18,10 @@ from ipaddress import ip_address
 from urllib.parse import urlparse
 import socket
 
+from oauthlib.oauth2 import BackendApplicationClient         
+from requests.auth import HTTPBasicAuth         
+from requests_oauthlib import OAuth2Session
+
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
@@ -189,7 +193,41 @@ def getCommandwHeaders():
 		result = jsonify(status=str(403), reason='Invalid URL', responseBody='Invalid URL');
 	return result;
 	
+@app.route('/tools/getImage', methods = ["POST"])
+def getImage():
+	data = request.get_json();
+	url = data['url'];
+	if 'tenantID' in data:
+		headers = { 
+		  'cache-control': "no-cache",
+		  'Authorization': 'Bearer ' + data['access_token'],
+		  'Content-Type': 'application/json',
+		  'TenantID': data['tenantID'],
+			'Accept': 'image/jpeg'
+		};
+	else:
+		headers = { 
+		  'cache-control': "no-cache",
+		  'Authorization': 'Bearer ' + data['access_token'],
+		  'Content-Type': 'application/json',
+		  'Accept': 'image/jpeg'
+		};
 	
+	#response = requests.request("GET", url, headers=headers);
+	response = requests.get(url, headers=headers, timeout=120);
+	
+	# Encode bytes to base64 string
+	encoded_string = base64.b64encode(response.content).decode('utf-8')
+
+	headers_json = json.dumps(dict(response.headers))
+	try:
+		result = jsonify(responseBody=encoded_string, status=str(response.status_code), headers=headers_json, requestedUrl=url);
+		# ...
+	except ValueError:
+		# no JSON returned
+		result = jsonify(responseBody=encoded_string, status=str(response.status_code), reason=response.reason, requestedUrl=url);
+	return result;	
+
 	
 @app.route('/tools/postCommand', methods = ["POST"])
 def postCommand():
@@ -231,6 +269,44 @@ def postCommand():
 		result = jsonify(status=str(403), reason='Invalid URL', responseBody='Invalid URL');
 	return result;
 	
+
+@app.route('/tools/postCommandwHeaders', methods = ["POST"])
+def postCommandwHeaders():
+	data = request.get_json();
+	url = data['url'];
+	
+	if 'tenantID' in data:
+		headers = { 
+		  'cache-control': "no-cache",
+		  'Authorization': 'Bearer ' + data['access_token'],
+		  'Content-Type': 'application/json',
+		  'TenantID': data['tenantID']
+		};
+	else:
+		headers = { 
+		  'cache-control': "no-cache",
+		  'Authorization': 'Bearer ' + data['access_token'],
+		  'Content-Type': 'application/json'
+		};
+
+	if 'data' in data:
+		payload = data['data'];
+		response = requests.request("POST", url, headers=headers, data=payload);
+	else:
+		response = requests.request("POST", url, headers=headers);
+
+	#app.logger.debug(response.text)
+	
+	headers_json = json.dumps(dict(response.headers))
+	try:
+		result = jsonify(responseBody=str(response.text), status=str(response.status_code), headers=headers_json, requestedUrl=url);
+		# ...
+	except ValueError:
+		# no JSON returned
+		app.logger.debug("No JSON")
+		result = jsonify(responseBody=str(response.text), status=str(response.status_code), reason=response.reason, requestedUrl=url);
+	return result;
+
 	
 @app.route('/tools/postFormDataCommand', methods = ["POST"])
 def postFormDataCommand():
@@ -311,6 +387,38 @@ def putCommand():
 	else:
 		print('Invalid URL')
 		result = jsonify(status=str(403), reason='Invalid URL', responseBody='Invalid URL');
+	return result;
+
+	
+@app.route('/tools/putCommandwHeaders', methods = ["POST"])
+def putCommandwHeaders():
+	data = request.get_json();
+	url = data['url'];
+	payload = data['data'];
+	
+	if 'tenantID' in data:
+		headers = { 
+		  'cache-control': "no-cache",
+		  'Authorization': 'Bearer ' + data['access_token'],
+		  'Content-Type': 'application/json',
+		  'TenantID': data['tenantID']
+		};
+	else:
+		headers = { 
+		  'cache-control': "no-cache",
+		  'Authorization': 'Bearer ' + data['access_token'],
+		  'Content-Type': 'application/json'
+		};
+	
+	response = requests.request("PUT", url, data=payload, headers=headers);
+	
+	headers_json = json.dumps(dict(response.headers))
+	try:
+		result = jsonify(responseBody=str(response.text), status=str(response.status_code), headers=headers_json, requestedUrl=url);
+		# ...
+	except ValueError:
+		# no JSON returned
+		result = jsonify(responseBody=str(response.text), status=str(response.status_code), reason=response.reason, requestedUrl=url);
 	return result;
 
 
@@ -394,6 +502,38 @@ def patchCommand():
 		result = jsonify(status=str(403), reason='Invalid URL', responseBody='Invalid URL');
 	return result;
 
+
+@app.route('/tools/patchCommandwHeaders', methods = ["POST"])
+def patchCommandwHeaders():
+	data = request.get_json();
+	url = data['url'];
+	payload = data['data'];
+	
+	if 'tenantID' in data:
+		headers = {
+			'cache-control': "no-cache",
+			'Authorization': 'Bearer ' + data['access_token'],
+			'Content-Type': 'application/json',
+			'TenantID': data['tenantID']
+		};
+	else:
+		headers = {
+			'cache-control': "no-cache",
+			'Authorization': 'Bearer ' + data['access_token'],
+			'Content-Type': 'application/json'
+		};
+	
+	response = requests.request("PATCH", url, data=payload, headers=headers);
+	
+	headers_json = json.dumps(dict(response.headers))
+	try:
+		result = jsonify(responseBody=str(response.text), status=str(response.status_code), headers=headers_json, requestedUrl=url);
+		# ...
+	except ValueError:
+		# no JSON returned
+		result = jsonify(responseBody=str(response.text), status=str(response.status_code), reason=response.reason, requestedUrl=url);
+	return result;
+
 	
 @app.route('/tools/deleteCommand', methods = ["POST"])
 def deleteCommand():
@@ -429,6 +569,29 @@ def deleteCommand():
 	else:
 		print('Invalid URL')
 		result = jsonify(status=str(403), reason='Invalid URL', responseBody='Invalid URL');
+	return result;
+	
+	
+# ------------------------------------------------------------------------------------------
+# OAuth2 token generation
+# ------------------------------------------------------------------------------------------
+
+@app.route('/v2/auth/token', methods = ["POST"])
+def tokenFetch():
+	data = request.get_json();
+	
+	client = BackendApplicationClient(data['client_id'])
+	oauth = OAuth2Session(client=client)
+	auth = HTTPBasicAuth(data['client_id'], data['client_secret'])
+	
+	token = oauth.fetch_token(token_url=data['token_url'], auth=auth)
+	print(token);
+	try:
+		result = jsonify(token);
+		# ...
+	except ValueError:
+		# no JSON returned
+		result = jsonify(status=str(response.status_code), reason=response.reason);
 	return result;
 
 

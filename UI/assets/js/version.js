@@ -1,13 +1,11 @@
 /*
-Central Automation v1.x
-Aaron Scott (WiFi Downunder) 2023-2025
+Central Automation v2.x
+Last Updated 2.0.0
+Aaron Scott (WiFi Downunder) 2025-2026
 */
 
-const CASVersion = "1.48";
+const CASVersion = "2.8.0";
 function getCASVersion() {
 	var versionP = document.getElementById('cas-version');
 	if (versionP) versionP.innerHTML = 'Version: ' + CASVersion;
-	
-	var docsTitle = document.getElementById('docsTitle');
-	if (docsTitle) docsTitle.innerHTML = 'Central Automation Studio v' + CASVersion;
 }

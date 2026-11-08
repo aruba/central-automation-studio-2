@@ -1,805 +1,556 @@
-<!-- 
-=========================================================
-Light Bootstrap Dashboard PRO - v2.0.1
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-pro
-Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
-Coded by Creative Tim
-
-=========================================================
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-
 <!--
-Central Automation v1.6.0
-Updated: 1.12.4
-Copyright Aaron Scott (WiFi Downunder) 2021-2025
--->
+ =========================================================
+* Soft UI Dashboard PRO - v1.1.1
+=========================================================
 
+* Product Page:  https://www.creative-tim.com/product/soft-ui-dashboard-pro 
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <!DOCTYPE html>
 <html lang="en">
-	<?php include 'hitCounter.php';?>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
-		<link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16" />
-		<link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>Central Automation Studio</title>
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
-		<!--     Fonts and icons     -->
-		<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,200" rel="stylesheet" />
-		<script src="https://kit.fontawesome.com/0f9dea581e.js" crossorigin="anonymous"></script>
-		<!-- CSS Files -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
-		<link href="assets/css/cas.css?v=241023" rel="stylesheet" />
-	</head>
+<?php include 'hitCounter.php';?>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <title>
+    Central Automation Studio 2
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/0f9dea581e.js" crossorigin="anonymous"></script>
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=260627" rel="stylesheet" />
+  <link href="assets/js/plugins/DataTables/datatables.min.css" rel="stylesheet">
+  <link href="assets/css/cas.css?v=261027" rel="stylesheet" />
+</head>
 
-	<body>
-		<div class="wrapper wrapper-full-page">
-			<!-- Navbar -->
-			<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
-				<div class="container">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" onclick="onFinishSetup()" href="" id="titleText" data-toggle="tooltip" data-placement="bottom" title=""> Central Automation Studio: Settings </a>
-						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-bar burger-lines"></span>
-							<span class="navbar-toggler-bar burger-lines"></span>
-							<span class="navbar-toggler-bar burger-lines"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse justify-content-end" id="navbar">
-						<ul class="navbar-nav">
-							<li class="nav-item">
-								<a class="nav-link" onclick="onFinishSetup()" href="" id="dashboardLink">
-									<i class="central-icon ca-dashboard"></i>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" onclick="showLog()" href="#">
-									<i class="central-icon ca-research"></i>
-								</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<i class="nc-icon nc-bullet-list-67"></i>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-									<a href="documentation.html" class="dropdown-item"> <i class="central-icon ca-book-open"></i> Help </a>
-									<a href="settings.html" class="dropdown-item"> <i class="nc-icon nc-settings-gear-64"></i> Settings </a>
-									<i><hr class="menu-divider"></i>
-									<a href="https://www.paypal.com/donate/?hosted_button_id=36C8EVZGZN48J" class="dropdown-item">
-										<i class="central-icon ca-money-coins"></i> Donate
-									</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			<!-- End Navbar -->
-			<!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
-			<div class="full-page register-page section-image" data-color="orange" data-image="assets/img/bg4.jpg">
-				<div class="content">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-3 mx-auto">
-								<button type="submit" class="btn btn-fill btn-info btn-wd btn-lg" onclick="onFinishSetup()">Save & Go To Dashboard</button>
-								<br /><br />
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 mx-auto">
-								<div class="card card-register card-plain text-center">
-									<div class="card-header ">
-										<div class="row  justify-content-center">
-											<div class="col-md-12">
-												<div class="header-text">
-													<h2 class="card-title">Central API Settings</h2>
-													<hr />
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card card-body">
-										<div class="row">
-											<div class="col-md-9 mx-auto"></div>
-											<div class="col-md-3 mx-auto">
-												<button type="submit" class="btn btn-fill btn-warning btn-wd" onclick="addAccount()">Add Central Account</button>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12 mx-auto">
-												<div class="card-body table-striped table-no-bordered table-hover dataTable dtr-inline table-full-width">
-													<div class="fresh-datatables">
-														<table id="hydra-table" class="table table-striped table-no-bordered table-hover table-fixed" cellspacing="0" width="100%">
-															<thead>
-																<th>Name</th>
-																<th>Cluster</th>
-																<th>Client ID</th>
-																<th>Client Secret</th>
-																<th>Access Token</th>
-																<th>Refresh Token</th>
-																<th>Actions</th>
-															</thead>
-															<tbody></tbody>
-														</table>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-9 mx-auto"></div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-secrets">
-														<input class="form-check-input" type="checkbox" value="" id="revealSecrets" checked="true" onclick="showSecrets()" />
-														<span class="form-check-sign"></span>Reveal Tokens and Secrets
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 mx-auto">
-								<div class="card card-register card-plain">
-									<div class="card-header text-center">
-										<div class="row  justify-content-center">
-											<div class="col-md-12">
-												<div class="header-text">
-													<h2 class="card-title">Global Settings</h2>
-													<h4 class="card-subtitle">General settings for Central Automation Studio</h4>
-													<hr />
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card card-body ">
-										<h4 class="card-subtitle-dark">Basic Settings</h4>
-										<div class="row">
-											<div class="col-md-12 mx-auto">
-												<label class="col-md-3 setting-label">Refresh Interval (minutes)</label>
-												<div class="col-md-3 setting-input">
-													<input type="number" placeholder="30" class="form-control" id="refresh_rate" min="5" onchange="saveGlobalSettings()" oninput="this.onchange();" />
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12 mx-auto">
-												<label class="col-md-3 setting-label">API Data Optimization</label>
-												<div class="col-md-3 setting-input">
-												<select id="scaleselector" class="selectpicker" data-style="btn-default btn-outline" data-menu-style="dropdown-blue"  onchange="updateScaleSettings()">
-													<option value="full">Full Details</option>
-													<option value="scale">Large Scale Deployment</option>
-													<option value="group">Group Config Only</option>
-													<option value="custom">Custom (Use settings below)</option>
-												</select>
-												</div>
-											</div>
-										</div>
-										<h4 class="card-subtitle-dark">Optional Information</h4>
-										<div class="row">
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_clients_wireless" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Wireless Client Monitoring
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_clients_wired" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Wired Client Monitoring
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="stat_collection" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Client Statistics Collection
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_aps" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>AP Monitoring
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_switches" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Switch Monitoring
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_gateways" checked="false" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Gateway Monitoring
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_gateway_details" checked="false" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Gateway Extra Details
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_group_properties" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Group Properties
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_vc_config" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>Virtual Controller Config
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_airmatch_events" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>AirMatch - All RF Events
-													</label>
-												</div>
-											</div>
-											<div class="col-md-3 mx-auto">
-												<div class="form-check">
-													<label class="form-check-label-options">
-														<input class="form-check-input" type="checkbox" value="" id="load_optimization_history" checked="true" onclick="saveGlobalSettings();" />
-														<span class="form-check-sign"></span>AirMatch - Optimization History
-													</label>
-												</div>
-											</div>
-										</div>
-										
-										<hr />
-										<h4 class="card-subtitle-dark">QR Code Settings</h4>
-										<div class="row">
-											<div class="col-md-10 mx-auto">
-												<label class="setting-label">QR Code Colour</label>
-												<div class="col-md-3 setting-input" id="color-picker-wrapper">
-													<input type="color" value="#FF8300" id="color_picker" onchange="saveGlobalSettings()" oninput="this.onchange();" />
-												</div>
-												<label class="setting-label">QR Code Logo</label>
-												<div class="col-md-3 setting-input">
-													<input type="text" placeholder="Custom Image URL" class="form-control" id="qr_logo" onchange="saveGlobalSettings()" oninput="this.onchange();" />
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+<body class="bg-gray-100">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
+      <div class="container-fluid py-1 px-3">
+       
+        <a class="navbar-brand m-0 cursor-pointer" onclick="goToDashboard(event)" id="titleText" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
+          <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 64 64"><title>api</title><g stroke-linecap="square" stroke-width="3" stroke-miterlimit="10" fill="none" stroke="#FF8300" stroke-linejoin="miter" class="nc-icon-wrapper" transform="translate(0.5 0.5)"><line x1="32" y1="54" x2="32" y2="46" stroke="#FF8300"></line><polyline points="50 33 50 37 55.172 42.172" stroke="#FF8300"></polyline><circle cx="58" cy="45" r="4" stroke="#FF8300"></circle><polyline points="14 33 14 37 8.828 42.172" stroke="#FF8300"></polyline><circle cx="6" cy="45" r="4" stroke="#FF8300"></circle><polyline points="17 52 17 48 21 44 21 42" stroke="#FF8300"></polyline><circle cx="17" cy="56" r="4" stroke="#FF8300"></circle><polyline points="47 52 47 48 43 44 43 42" stroke="#FF8300"></polyline><circle cx="47" cy="56" r="4" stroke="#FF8300"></circle><circle cx="32" cy="58" r="4" stroke="#FF8300"></circle><circle cx="32" cy="32" r="8"></circle><path d="M62,34V28l-8.612-1.076A21.839,21.839,0,0,0,50.71,20.47l5.332-6.854L50.384,7.958,43.53,13.29a21.839,21.839,0,0,0-6.454-2.678L36,2H28l-1.076,8.612A21.839,21.839,0,0,0,20.47,13.29L13.616,7.958,7.958,13.616,13.29,20.47a21.839,21.839,0,0,0-2.678,6.454L2,28v6"></path></g></svg>
+          <span class="ms-1 font-weight-bold">Central Automation Studio: <strong>Settings</strong></span>
+        </a>
+        
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            
+          </div>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:scrollLogToBottom();" class="nav-link text-body p-0">
+                <i class="central-icon pb-2 ca-research fixed-plugin-button-nav cursor-pointer"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="settingsMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-list-ul cursor-pointer"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="settingsMenuButton">
+                <li class="mb-2">
+                  <a class="dropdown-item border-radius-md" href="documentation/start.html">
+                    <div class="d-flex py-1">
+                      <div class="my-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 64 64"><title>book-open</title><g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" transform="translate(0.5 0.5)" fill="none" stroke="#344767" stroke-miterlimit="10"><line x1="32" y1="11" x2="32" y2="38" stroke-linecap="butt"></line> <polyline points=" 56,10 62,10 62,58 2,58 2,10 8,10 " stroke="#344767"></polyline> <path d="M32,11 C25.25,5.917,16.333,4,8,4c0,4.833,0,41,0,41c8.333,0,17.25,1.917,24,7c6.75-5.083,15.667-7,24-7c0,0,0-36.167,0-41 C47.667,4,38.75,5.917,32,11z"></path></g></svg>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-0 ms-2 ">
+                          Documentation
+                        </h6>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a class="dropdown-item border-radius-md" href="settings.html">
+                    <div class="d-flex py-1">
+                      <div class="my-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 64 64"><title>settings-gear</title><g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" transform="translate(0.5 0.5)" fill="none" stroke="#344767" stroke-miterlimit="10"><circle cx="32" cy="32" r="9" stroke="#344767"></circle><path d="M53.091,32a21.166,21.166,0,0,0-.5-4.516l7.155-5.418-5.272-9.132-8.286,3.5A21.034,21.034,0,0,0,38.385,11.9L37.273,3H26.727l-1.112,8.9a21.034,21.034,0,0,0-7.807,4.532l-8.286-3.5L4.25,22.066l7.155,5.418a20.817,20.817,0,0,0,0,9.032L4.25,41.934l5.272,9.132,8.286-3.5A21.034,21.034,0,0,0,25.615,52.1L26.727,61H37.273l1.112-8.9a21.034,21.034,0,0,0,7.807-4.532l8.286,3.5,5.272-9.132L52.6,36.516A21.166,21.166,0,0,0,53.091,32Z"></path></g></svg>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-0 ms-2">
+                          Settings
+                        </h6>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <div class="divider"></div>
+                </li>
+                <li class="mb-2">
+                  <a class="dropdown-item border-radius-md" href="https://www.paypal.com/donate/?hosted_button_id=36C8EVZGZN48J" target="_blank">
+                    <div class="d-flex py-1">
+                      <div class="my-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 64 64"><title>money-coins</title><g fill="#344767" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="10"><polyline fill="none" stroke="#344767" stroke-width="2" points="32,46 2,46 2,2 62,2 62,30 "></polyline> <circle fill="none" stroke="#344767" stroke-width="2" cx="32" cy="24" r="6"></circle> <path fill="none" stroke="#344767" stroke-width="2" d="M54,28V18 c-4.519,0-8-3.481-8-8H18c0,4.519-3.481,8-8,8v12c4.519,0,8,3.481,8,8h14"></path> <path fill="none" stroke="#344767" stroke-width="2" d="M38,40v8c0,3.314,5.373,6,12,6 s12-2.686,12-6v-8" stroke-linecap="butt"></path> <path fill="none" stroke="#344767" stroke-width="2" d="M38,48v8c0,3.314,5.373,6,12,6 s12-2.686,12-6v-8" stroke-linecap="butt"></path> <ellipse fill="none" stroke="#344767" stroke-width="2" cx="50" cy="40" rx="12" ry="6"></ellipse></g></svg>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-0 ms-2">
+                          Donate
+                        </h6>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row mb-5">
+        <div class="col-lg-10 mt-lg-0 mt-4 mx-auto">
+          <!-- Card Go -->
 
-							<div class="col-md-12 mx-auto">
-								<div class="card card-register card-plain text-center">
-									<div class="card-header ">
-										<div class="row  justify-content-center">
-											<div class="col-md-12">
-												<div class="header-text">
-													<h2 class="card-title">Naming Conventions</h2>
-													<h4 class="card-subtitle">Enter the formats used for renaming</h4>
-													<hr />
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card card-body">
-										<div class="col-md-10 mx-auto">
-											<div class="row">
-												<label class="col-md-5 format-label">Auto Device Naming Format</label>
-												<div class="col-md-5 setting-input">
-													<input type="text" placeholder="{{initials}}-{{model}}-{{number}}" class="form-control" id="ap_naming_format" onchange="saveGlobalSettings()" oninput="this.onchange();" />
-												</div>
-											</div>
+          <div class="card card-body colourful" style="background-image: url('assets/img/curved-images/curved0.jpg');">
+            <span class="mask bg-gradient-primary opacity-6" style="border-radius: 8px;" id='casTypeColor'></span>
+            <div class="row justify-content-center align-items-center" style="z-index: 0">
+              <div class="col-sm-auto col-4">
+                <div class="avatar avatar-xl position-relative">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 64 64"><title>api</title><g stroke-linecap="square" stroke-width="3" stroke-miterlimit="10" fill="none" stroke="#ffffff" stroke-linejoin="miter" class="nc-icon-wrapper" transform="translate(0.5 0.5)"><line x1="32" y1="54" x2="32" y2="46" stroke="#ffffff"></line><polyline points="50 33 50 37 55.172 42.172" stroke="#ffffff"></polyline><circle cx="58" cy="45" r="4" stroke="#ffffff"></circle><polyline points="14 33 14 37 8.828 42.172" stroke="#ffffff"></polyline><circle cx="6" cy="45" r="4" stroke="#ffffff"></circle><polyline points="17 52 17 48 21 44 21 42" stroke="#ffffff"></polyline><circle cx="17" cy="56" r="4" stroke="#ffffff"></circle><polyline points="47 52 47 48 43 44 43 42" stroke="#ffffff"></polyline><circle cx="47" cy="56" r="4" stroke="#ffffff"></circle><circle cx="32" cy="58" r="4" stroke="#ffffff"></circle><circle cx="32" cy="32" r="8"></circle><path d="M62,34V28l-8.612-1.076A21.839,21.839,0,0,0,50.71,20.47l5.332-6.854L50.384,7.958,43.53,13.29a21.839,21.839,0,0,0-6.454-2.678L36,2H28l-1.076,8.612A21.839,21.839,0,0,0,20.47,13.29L13.616,7.958,7.958,13.616,13.29,20.47a21.839,21.839,0,0,0-2.678,6.454L2,28v6"></path></g></svg>
+                </div>
+              </div>
+              <div class="col-sm-auto col-8 my-auto">
+                <div class="h-100">
+                  <h5 class="mb-1 font-weight-bolder text-white" id="casType">
+                    No Account
+                  </h5>
+                </div>
+              </div>
+              <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 pt-3 d-flex">
+                <button type="submit" class="btn btn-fill btn-light btn-wd" onclick="switchToDashboard()" id="goBtn">Go To Dashboard</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card Account Info -->
+          <div class="card mt-4" id="account-info">
+            <div class="card-header d-flex">
+              <h5 class="mb-0">Account Info</h5>
+              <div class="ms-auto"><button type="submit" class="btn btn-fill btn-light btn-wd" id='newAccountBtn' onclick="addAccount()">Add New Central Account</button></div>
+            </div>
+            <div class="card-body pt-0">
+              <div class="row">
+                <div class="col-md-12 mx-auto">
+                  <div class="datatables">
+                    <table id="account-table" class="table table-striped table-no-bordered table-hover table-fixed big-cell" cellspacing="0" width="100%">
+                      <thead>
+                        <th>Name</th>
+                        <th>Cluster</th>
+                        <th>Client ID</th>
+                        <th>Client Secret</th>
+                        <th>Actions</th>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="d-flex">
+                  <div class="ms-auto">
+                    <div class="form-check">
+                      <label class="form-check-label-secrets">
+                        <input class="form-check-input" type="checkbox" value="" id="revealSecrets" checked="true" onclick="showSecrets()" />
+                        <span class="form-check-sign"></span>Reveal Tokens and Secrets
+                        </label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <!-- Card Global Settings -->
+          <div class="card mt-4" id="settings">
+            <div class="card-header">
+              <h5>Global Settings</h5>
+            </div>
+            <div class="card-body pt-0">
+              <div class="row">
+                <div class="col-sm-2 col-2">
+                  <label class="form-label mt-4">Refresh Interval (minutes)</label>
+                  <div class="input-group">
+                    <input id="refresh_rate" name="refresh_rate" class="form-control" type="number" placeholder="30" min="5" onchange="saveGlobalSettings()">
+                  </div>
+                </div>
+              
+                <div class="col-sm-4 col-3" hidden>
+                  <label class="col-md-3 setting-label">API Data Optimization</label>
+                  <div class="col-md-3 setting-input">
+                  <select id="scaleselector" class="selectpicker" data-style="btn-default btn-outline" data-menu-style="dropdown-blue"  onchange="updateScaleSettings()">
+                    <option value="full">Full Details</option>
+                    <option value="scale">Large Scale Deployment</option>
+                    <option value="group">Group Config Only</option>
+                    <option value="custom">Custom (Use settings below)</option>
+                  </select>
+                  </div>
+                </div>
+              </div>
+              <hr class="horizontal dark">
+              <h6 class="card-subtitle-dark">Optional Information</h6>
+              <div class="row">
+                <div class="col">
+                  <div class="form-check form-switch ms-3">
+                    <input class="form-check-input" checked type="checkbox" id="load_clients_wireless" onclick="saveGlobalSettings();">
+                    <p class="mb-0">Wireless Client Monitoring</p>
+                  </div>
+                  <p class="text-sm text-secondary ms-auto me-3 my-auto"></p>
+                  
+                </div>
+                <div class="col">
+                  <div class="form-check form-switch my-auto">
+                    <input class="form-check-input" checked type="checkbox" id="load_clients_wired" onclick="saveGlobalSettings();">
+                    <p class="mb-0">Wired Client Monitoring</p>
+                  </div>
+                  <p class="text-sm text-secondary ms-auto me-3 my-auto"></p>
+                </div>
+                <div class="col">
+                </div>     
+              </div>
+              <br  />
+              <div class="row">
+                <div class="col">
+                  <div class="form-check form-switch ms-3">
+                    <input class="form-check-input" checked type="checkbox" id="load_aps" onclick="saveGlobalSettings();">
+                    <p class="mb-0">AP Monitoring</p>
+                  </div>
+                  <p class="text-sm text-secondary ms-auto me-3 my-auto"></p>
+                  
+                </div>
+                <div class="col">
+                  <div class="form-check form-switch my-auto">
+                    <input class="form-check-input" checked type="checkbox" id="load_switches" onclick="saveGlobalSettings();">
+                    <p class="mb-0">Switch Monitoring</p>
+                  </div>
+                  <p class="text-sm text-secondary ms-auto me-3 my-auto"></p>
+                </div>
+                <div class="col">
+                  <div class="form-check form-switch my-auto">
+                    <input class="form-check-input" checked type="checkbox" id="load_gateways" onclick="saveGlobalSettings();">
+                    <p class="mb-0">Gateway Monitoring</p>
+                  </div>
+                  <p class="text-sm text-secondary ms-auto me-3 my-auto"></p>
+                </div>             
+              </div>
+              <hr class="horizontal dark my-sm-4">
+              <div class="row" >
+                <h6>Import/Export</h6>
+                <div class="col-2">
+                  <div class="col-md-2 setting-input">
+                    <button type="submit" class="btn btn-fill btn-default btn-wd" onclick="exportSettings()">Export</button>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <form class="form-group">
+                      <button type="button" class="btn btn-fill btn-default btn-wd" onclick="importSettings()">Import</button><input type="file" id="import" class="form-control " accept=".json" required />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Account Modal -->
+      <div class="modal modal-500p fade" id="AccountModal" tabindex="-1" aria-labelledby="ClientModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                <div class="card-header pt-2">
+                  <h5>Account Details</h5>
+                </div>
+                <div class="card-body">
+                  <form class="form-horizontal" id="AccountForm">
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="form-label mt-4">Name</label>
+                          <div class="input-group">
+                            <input id="account_name" class="form-control" type="text" placeholder="Name" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="form-label mt-4">Cluster</label>
+                          <div class="input-group">
+                            <select class="form-control" id="clusterselector" placeholder="Please select a Cluster">
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" id="cop_address_row" hidden>
+                        <label class="form-label mt-4">Hostname</label>
+                        <div class="input-group">
+                          <input id="cop_address" class="form-control" type="text" placeholder="COP Hostname">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" hidden>
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="form-label mt-4">Customer ID</label>
+                          <div class="input-group">
+                            <input id="central_id" class="form-control" type="text" placeholder="Central ID">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="form-label mt-4">Client ID</label>
+                          <div class="input-group">
+                            <input id="client_id" class="form-control" type="text" placeholder="Client ID" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="form-label mt-4">Client Secret</label>
+                          <div class="input-group">
+                            <input id="client_secret" class="form-control" type="text" placeholder="Client Secret" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="form-label mt-4">Access Token</label>
+                          <div class="input-group">
+                            <input id="access_token" class="form-control" type="text" placeholder="Access Token" disabled>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="form-label mt-4">Access Token Expiry Date</label>
+                          <div class="input-group">
+                            <input id="expires_at_string" class="form-control" type="text" placeholder="Token Expiry" disabled>
+                            <input id="expires_at" class="form-control" type="text" placeholder="Token Expiry" hidden>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <br />
+                  <div class="d-flex">
+                    <div class="ms-auto">
+                      <button type="submit" class="btn btn-fill btn-neutral btn-wd" onclick="cancelAccount()">Cancel</button>
+                      <button type="submit" class="btn btn-fill btn-primary btn-wd" onclick="verifyAccount()">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  End Modal -->
+      
+      <footer class="footer pt-3  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>
+                <a href="https://www.wifidownunder.com" class="font-weight-bold" target="_blank">Wi-Fi Downunder</a>
+                <p class="copyright text-sm text-muted text-lg-start" id="cas-version"> </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <ul class="footer-menu" id="api-footer"></ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <div class="fixed-plugin">
+    <div class="card shadow-lg blur">
+      <div class="card-header pb-0 pt-3  bg-transparent ">
+        <div class="float-start">
+          <h5 class="mt-3 mb-0">Output Log</h5>
+          <p>Output from recent actions</p>
+        </div>
+        <div class="float-end mt-4">
+          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+      </div>
+      <hr class="horizontal dark my-1">
+      <div class="card-body pt-sm-3 pt-0 log-body">
+        <div class="card-body" id="errorBody"></div>
+        <div id="logBottom"></div>
+      </div>
+      <div class="card-footer">
+        <hr class="horizontal dark my-sm-4">
+        <div class="w-100 text-center">
+          <a onclick="clearErrorLog()" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="central-icon ca-bin"></i> Clear Log
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="assets/js/plugins/choices.min.js"></script>
+  <script src="assets/js/plugins/DataTables/datatables.js"></script>
+  <script src="assets/js/plugins/ip-address.js"></script>
+  <script src="assets/js/plugins/title-numeric.js"></script>
+  <script src="assets/js/plugins/moment.min.js"></script>
+  <script src="assets/js/plugins/luxon.min.js"></script>
+  <script src="assets/js/plugins/sweetalert.min.js"></script>
+  
+  <script src="assets/js/proxy.js?v=230325"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      getCASVersion();
+      
+      openIndexedDB();
+      
+      initializeChoices();
+      
+      var reachabilityPromise = new $.Deferred();
+      $.when(checkReachability(reachabilityPromise)).then(function () {	
+        
+      });
+      
+      var loadWirelessClients = localStorage.getItem('load_clients_wireless');
+      if (loadWirelessClients === null || loadWirelessClients === "") {
+        loadWirelessClients = true;
+      } else {
+        loadWirelessClients = JSON.parse(loadWirelessClients)
+      }
+      document.getElementById("load_clients_wireless").checked = loadWirelessClients;
+      
+      var loadWiredClients = localStorage.getItem('load_clients_wired');
+      if (loadWiredClients === null || loadWiredClients === "") {
+        loadWiredClients = true;
+      } else {
+        loadWiredClients = JSON.parse(loadWiredClients)
+      }
+      document.getElementById("load_clients_wired").checked = loadWiredClients;
+      
+      var loadAPs = localStorage.getItem('load_aps');
+      if (loadAPs === null || loadAPs === "") {
+        loadAPs = true;
+      } else {
+        loadAPs = JSON.parse(loadAPs)
+      }
+      document.getElementById("load_aps").checked = loadAPs;
+      
+      var loadSwitches = localStorage.getItem('load_switches');
+      if (loadSwitches === null || loadSwitches === "") {
+        loadSwitches = true;
+      } else {
+        loadSwitches = JSON.parse(loadSwitches)
+      }
+      document.getElementById("load_switches").checked = loadSwitches;
+      
+      var loadGateways = localStorage.getItem('load_gateways');
+      if (loadGateways === null || loadGateways === "") {
+        loadGateways = true;
+      } else {
+        loadGateways = JSON.parse(loadGateways)
+      }
+      document.getElementById("load_gateways").checked = loadGateways;
+      
+      $('#account-table').DataTable({
+        "paging": false,
+        "searching": false,
+        "info": false,
+        "autoWidth": false,
+        columnDefs: [
+          {
+            targets: [2,3],
+            render: function (data, type, full, meta) {
+              return "<div class='text-wrap width-200'>" + data + "</div>";
+            }
+          },
+          { "targets": [3,4], "orderable": false },
+          {"className": "dt-center", "targets": "_all"}
+        ]
+      });
+      
+      // Setup action buttons in account table
+      var table = $('#account-table').DataTable();
+      // Edit Account record
+      table.on('click', '.edit', function() {
+          $tr = $(this).closest('tr');
+          if ($tr.hasClass('child')) {
+              $tr = $tr.prev('.parent');
+          }
+          var data = table.row($tr).data();
+          editAccount(data[2]);
+      });
 
-											<div class="row">
-												<label class="col-md-5 format-label">Template Hostname Variable</label>
-												<div class="col-md-5 setting-input">
-													<input type="text" placeholder="_sys_hostname" class="form-control" pattern="^[a-zA-Z0-9_.]*$" id="hostname_variable" onchange="saveGlobalSettings()" oninput="this.onchange();" />
-												</div>
-											</div>
+      // Delete a record
+      table.on('click', '.remove', function(e) {
+          $tr = $(this).closest('tr');
+          var data = table.row($tr).data();
+          deleteAccount(data[2]);
+      });
+    
+      
+      populateCentralClusters();
+      loadAccountTable();
+      loadGlobalSettings();
+      
+    });
+    
+  </script>
+  
+  
+  <!--  Github buttons  -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="assets/js/soft-ui-dashboard.min.js?v=1.1.1"></script>
+  <!--  Notifications Plugin  -->
+  <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <!--  CSV Plugin  -->
+  <script src="assets/js/plugins/papaparse.min.js"></script>
+  
+  <!--   CAS JS Files   -->
+  <script src="assets/js/version.js?v=260628"></script>
+  <script src="assets/js/constants.js?v=260628"></script>
+  <script src="assets/js/accounts.js?v=260628"></script>
+  <script src="assets/js/core.js?v=261027"></script>
+  <script src="assets/js/settings.js?v=260707"></script>
+</body>
 
-											<div class="row">
-												<label class="col-md-5 format-label">Switch Port Variable</label>
-												<div class="col-md-5 setting-input">
-													<input type="text" placeholder="int{{number}}_name" class="form-control" pattern="^[a-zA-Z0-9_.]*$" id="port_variable_format" onchange="saveGlobalSettings()" oninput="this.onchange();" />
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="col-md-12 mx-auto">
-								<div class="card card-register card-plain text-center">
-									<div class="card-header ">
-										<div class="row  justify-content-center">
-											<div class="col-md-12">
-												<div class="header-text">
-													<h2 class="card-title">Export/Import Settings</h2>
-													<h4 class="card-subtitle">Backup Central Automation Studio configuration</h4>
-													<hr />
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card card-body">
-										<div class="col-md-10 mx-auto">
-											<div class="row">
-												<label class="col-md-5 format-label">Export</label>
-												<div class="col-md-2 setting-input">
-													<button type="submit" class="btn btn-fill btn-default btn-wd" onclick="exportSettings()">Export</button>
-												</div>
-											</div>
-											
-											<div class="row">
-												<label class="col-md-5 format-label">Import</label>
-												<div class="col-md-5 setting-input">
-												<form class="form-inline">
-													<div class="form-group">
-														<input type="file" id="import" class="form-control btn btn-fill btn-info" accept=".json" required />&nbsp;&nbsp;<button type="button" class="btn btn-fill btn-default btn-wd" onclick="importSettings()">Import</button>
-													</div>
-												</form>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Account Modal -->
-				<div class="modal fade modal-small modal-primary" id="AccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="row">
-								<div class="col-md-1"></div>
-								<div class="col-md-10">
-									<div class="card-body">
-										<form class="form-horizontal">
-											<div class="form-group">
-												<div class="row">
-													<label class="col-md-4">Name</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="Name" class="form-control" id="account_name" />
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<label class="col-md-4">Cluster</label>
-													<div class="col-md-8">
-														<select id="clusterselector" class="custom-select" data-title="Select a Cluster..." data-style="btn-default btn-outline" data-menu-style="dropdown-orange" onchange="isCOPSelected()"> </select>
-													</div>
-												</div>
-												<div class="row" id="cop_address_row" hidden>
-													<label class="col-md-4">Hostname</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="COP Hostname" class="form-control" id="cop_address" />
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<label class="col-md-4">Customer ID</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="Central ID" class="form-control" id="central_id" />
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<label class="col-md-4">Client ID</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="Client ID" class="form-control" id="client_id" />
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<label class="col-md-4">Client Secret</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="Client Secret" class="form-control" id="client_secret" />
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<label class="col-md-4">Access Token</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="Access Token" class="form-control" id="access_token" />
-													</div>
-												</div>
-											</div>
-											<div class="form-group" hidden>
-												<div class="row">
-													<label class="col-md-4">Token Expiry</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="Access Token Expiry" class="form-control" id="expires_at" readonly/>
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<label class="col-md-4">Refresh Token</label>
-													<div class="col-md-8">
-														<input type="text" placeholder="Refresh Token" class="form-control" id="refresh_token" />
-													</div>
-												</div>
-											</div>
-											
-										</form>
-										<br />
-										<button type="submit" class="btn btn-fill btn-neutral btn-wd" onclick="cancelAccount()">Cancel</button>
-										<button type="submit" class="btn btn-fill btn-warning btn-wd" onclick="testToken()">Save</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--  End Modal -->
-				<!-- Error Log Modal -->
-				<div class="modal fade modal-mini modal-primary" id="ErrorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content log-modal">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="card-header">
-										<h4 class="card-title">Log</h4>
-										<a class="refresh-link" onclick="clearErrorLog()"><i class="central-icon ca-bin"></i></a>
-										<a class="refresh-link pe-3" onclick="copyLog()"><i class="central-icon ca-document-copy"></i></a>
-									</div>
-									<div class="card-body log-body" id="errorBody"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--  End Modal -->
-			</div>
-
-			<footer class="footer">
-				<div class="container">
-					<a data-toggle="modal" data-target="#ErrorModal" id="ErrorModalLink"></a>
-					<a data-toggle="modal" data-target="#AccountModal" id="AccountModalLink"></a>
-					<nav>
-						<ul class="footer-menu" id="api-footer"></ul>
-						<p class="copyright text-center">
-							©
-							<script>
-								document.write(new Date().getFullYear())
-							</script>
-							<a href="http://www.wifidownunder.com">WiFi Downunder</a>
-						</p>
-						<p class="copyright text-center" id="cas-version"> </p>
-					</nav>
-				</div>
-			</footer>
-		</div>
-	</body>
-	<!--   Core JS Files   -->
-	<script src="assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-	<script src="assets/js/plugins/bootstrap-switch.js"></script>
-	<!--  Chartist Plugin  -->
-	<script src="assets/js/plugins/chartist.min.js"></script>
-	<!--  Notifications Plugin    -->
-	<script src="assets/js/plugins/bootstrap-notify.js"></script>
-	<!--  jVector Map  -->
-	<script src="assets/js/plugins/jquery-jvectormap.js" type="text/javascript"></script>
-	<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-	<script src="assets/js/plugins/moment.min.js"></script>
-	<script src="assets/js/plugins/luxon.min.js"></script>
-	<!--  DatetimePicker   -->
-	<script src="assets/js/plugins/bootstrap-datetimepicker.js"></script>
-	<!--  Sweet Alert  -->
-	<script src="assets/js/plugins/sweetalert2.all.min.js" type="text/javascript"></script>
-	<!--  Tags Input  -->
-	<script src="assets/js/plugins/bootstrap-tagsinput.js" type="text/javascript"></script>
-	<!--  Sliders  -->
-	<script src="assets/js/plugins/nouislider.js" type="text/javascript"></script>
-	<!--  Bootstrap Select  -->
-	<script src="assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
-	<!--  jQueryValidate  -->
-	<script src="assets/js/plugins/jquery.validate.min.js" type="text/javascript"></script>
-	<!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-	<script src="assets/js/plugins/jquery.bootstrap-wizard.js"></script>
-	<!--  Bootstrap Table Plugin -->
-	<script src="assets/js/plugins/bootstrap-table.js"></script>
-	<!--  DataTable Plugin -->
-	<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
-	<script src="assets/js/plugins/ellipsis.js"></script>
-	<!--  Full Calendar   -->
-	<script src="assets/js/plugins/fullcalendar.min.js"></script>
-	<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-	<script src="assets/js/light-bootstrap-dashboard.js?v=2.0.1" type="text/javascript"></script>
-	<!-- Light Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
-	<script>
-		$(document).ready(function() {
-			getCASVersion();
-			openIndexedDB();
-		    demo.checkFullPageBackgroundImage();
-
-			var color_picker = document.getElementById("color_picker");
-			var color_picker_wrapper = document.getElementById("color-picker-wrapper");
-			color_picker.onchange = function() {
-				color_picker_wrapper.style.backgroundColor = color_picker.value;
-			}
-			color_picker.addEventListener("input", saveGlobalSettings, false);
-	
-			const input = document.getElementById('hostname_variable');
-			let currentValue = input.value || '';
-			input.addEventListener('input', function inputInputEventHandler(e) {
-				const target = e.target;
-	
-				if (/^[a-zA-Z0-9_.]*$/.test(target.value)) {
-					currentValue = target.value;
-				} else {
-					// Users enter the not supported characters
-					// Restore the value and selection
-					target.value = currentValue;
-					target.setSelectionRange(selection.selectionStart, selection.selectionEnd);
-				}
-			});
-			let selection = {};
-			input.addEventListener('keydown', function (e) {
-				const target = e.target;
-				selection = {
-					selectionStart: target.selectionStart,
-					selectionEnd: target.selectionEnd,
-				};
-			});
-	
-			const portVariable = document.getElementById('port_variable_format');
-			let currentPortValue = portVariable.value || '';
-			portVariable.addEventListener('input', function inputInputEventHandler(e) {
-				const target = e.target;
-	
-				if (/^[a-zA-Z0-9_.]*$/.test(target.value)) {
-					currentPortValue = target.value;
-				} else {
-					// Users enter the not supported characters
-					// Restore the value and selection
-					target.value = currentPortValue;
-					target.setSelectionRange(selection.selectionStart, selection.selectionEnd);
-				}
-			});
-			let portSelection = {};
-			portVariable.addEventListener('keydown', function (e) {
-				const target = e.target;
-				portSelection = {
-					selectionStart: target.selectionStart,
-					selectionEnd: target.selectionEnd,
-				};
-			});
-	
-			$('#hydra-table').DataTable({
-				"paging": false,
-				"searching": false,
-				"info": false,
-				"autoWidth": false,
-				columnDefs: [ {
-				targets: [2,3,4,5],
-				render: function (data, type, full, meta) {
-          					return "<div class='text-wrap width-150'>" + data + "</div>";
-  					}
-					}]
-			});
-	
-			var table = $('#hydra-table').DataTable();
-	
-		    // Edit Account record
-      		table.on('click', '.edit', function() {
-          		$tr = $(this).closest('tr');
-
-          		if ($tr.hasClass('child')) {
-              		$tr = $tr.prev('.parent');
-          		}
-
-          		var data = table.row($tr).data();
-          		editAccount(data[2]);
-          		//alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-      		});
-
-      		// Delete a record
-      		table.on('click', '.remove', function(e) {
-          		$tr = $(this).closest('tr');
-          		var data = table.row($tr).data();
-          		deleteAccount(data[2]);
-      		});
-	
-		    if (localStorage.getItem('base_url') && !localStorage.getItem('account_details')) {
-				// Old account settings - need to migrate to v1.6
-				upgradeAccountSettings();
-			}
-	
-			var showingSecrets = localStorage.getItem('reveal_secrets');
-			if (showingSecrets != null && showingSecrets != "undefined") {
-				document.getElementById("revealSecrets").checked = JSON.parse(showingSecrets);
-			} else {
-				document.getElementById("revealSecrets").checked = true;
-				localStorage.setItem('reveal_secrets',true);
-			}
-	
-		    populateCentralClusters();
-			loadAccountDetails();
-	
-			var apNaming = localStorage.getItem('ap_naming_format');
-			if (apNaming != null && apNaming != "undefined") {
-				document.getElementById("ap_naming_format").value = apNaming;
-			}
-	
-			var hostnameVariable = localStorage.getItem('hostname_variable');
-			if (hostnameVariable != null && hostnameVariable != "undefined") {
-				document.getElementById("hostname_variable").value = hostnameVariable;
-			}
-	
-			var portNaming = localStorage.getItem('port_variable_format');
-			if (portNaming != null && portNaming != "undefined") {
-				document.getElementById("port_variable_format").value = portNaming;
-			}
-	
-			var refreshRate = localStorage.getItem('refresh_rate');
-			if (refreshRate != null && refreshRate != "undefined") {
-				document.getElementById("refresh_rate").value = refreshRate;
-			}
-	
-			var qrColor = localStorage.getItem('qr_color');
-			if (qrColor != null && qrColor != "undefined") {
-				document.getElementById("color_picker").value = qrColor;
-			} else {
-				document.getElementById("color_picker").value = "#FF8300";
-			}
-			color_picker_wrapper.style.backgroundColor = color_picker.value;
-	
-			var qrLogo = localStorage.getItem('qr_logo');
-			if (qrLogo != null && qrLogo != "undefined") {
-				document.getElementById("qr_logo").value = qrLogo;
-			} else {
-				document.getElementById("qr_logo").value = "";
-			}
-			
-			var loadWirelessClients = localStorage.getItem('load_clients');
-			if (loadWirelessClients === null || loadWirelessClients === "") {
-				loadWirelessClients = true;
-			} else {
-				loadWirelessClients = JSON.parse(loadWirelessClients)
-			}
-			document.getElementById("load_clients_wireless").checked = loadWirelessClients;
-			
-			var loadWiredClients = localStorage.getItem('load_clients_wired');
-			if (loadWiredClients === null || loadWiredClients === "") {
-				loadWiredClients = true;
-			} else {
-				loadWiredClients = JSON.parse(loadWiredClients)
-			}
-			document.getElementById("load_clients_wired").checked = loadWiredClients;
-			
-			var loadAPs = localStorage.getItem('load_aps');
-			if (loadAPs === null || loadAPs === "") {
-				loadAPs = true;
-			} else {
-				loadAPs = JSON.parse(loadAPs)
-			}
-			document.getElementById("load_aps").checked = loadAPs;
-			
-			var loadSwitches = localStorage.getItem('load_switches');
-			if (loadSwitches === null || loadSwitches === "") {
-				loadSwitches = true;
-			} else {
-				loadSwitches = JSON.parse(loadSwitches)
-			}
-			document.getElementById("load_switches").checked = loadSwitches;
-			
-			var loadDevices = localStorage.getItem('load_devices');
-			if (loadDevices === null || loadDevices === "") {
-				// do nothing anymore - moved to individual loading of APs and switches
-			} else {
-				loadDevices = JSON.parse(loadDevices)
-				document.getElementById("load_aps").checked = loadDevices;
-				document.getElementById("load_switches").checked = loadDevices;
-				localStorage.removeItem('load_devices');
-			}
-			
-			var loadGateways = localStorage.getItem('load_gateways');
-			if (loadGateways === null || loadGateways === "") {
-				loadGateways = true;
-			} else {
-				loadGateways = JSON.parse(loadGateways)
-			}
-			document.getElementById("load_gateways").checked = loadGateways;
-			
-			var loadGatewayDetails = localStorage.getItem('load_gateway_details');
-			if (loadGatewayDetails === null || loadGatewayDetails === "") {
-				loadGatewayDetails = false;
-			} else {
-				loadGatewayDetails = JSON.parse(loadGatewayDetails)
-			}
-			document.getElementById("load_gateway_details").checked = loadGatewayDetails;
-	
-			var loadGroupProperties = localStorage.getItem('load_group_properties');
-			if (loadGroupProperties === null || loadGroupProperties === "") {
-				loadGroupProperties = true;
-			} else {
-				loadGroupProperties = JSON.parse(loadGroupProperties)
-			}
-			document.getElementById("load_group_properties").checked = loadGroupProperties;
-	
-			var loadAirMatchEvents = localStorage.getItem('load_airmatch_events');
-			if (loadAirMatchEvents === null || loadAirMatchEvents === "") {
-				loadAirMatchEvents = true;
-			} else {
-				loadAirMatchEvents = JSON.parse(loadAirMatchEvents)
-			}
-			document.getElementById("load_airmatch_events").checked = loadAirMatchEvents;
-			
-			var reducedOpt = localStorage.getItem('load_optimization_history');
-			if (reducedOpt === null || reducedOpt === "") {
-				reducedOpt = true;
-			} else {
-				reducedOpt = JSON.parse(reducedOpt)
-			}
-			document.getElementById("load_optimization_history").checked = reducedOpt;
-	
-			var loadVCConfig = localStorage.getItem('load_vc_config');
-			if (loadVCConfig === null || loadVCConfig === "") {
-				loadVCConfig = true;
-			} else {
-				loadVCConfig = JSON.parse(loadVCConfig)
-			}
-			document.getElementById("load_vc_config").checked = loadVCConfig;
-			
-			var statCollection = localStorage.getItem('stat_collection');
-			if (statCollection === null || statCollection === "") {
-				statCollection = false;
-			} else {
-				statCollection = JSON.parse(statCollection)
-			}
-			document.getElementById("stat_collection").checked = statCollection;
-			
-			checkScaleConfig();
-	
-		    var reachabilityPromise = new $.Deferred();
-		    $.when(checkReachability(reachabilityPromise)).then(function () {
-	
-			});
-		});
-	</script>
-	<!--   Main JS Files   -->
-	<script src="assets/js/version.js?v=260313"></script>
-	<script src="assets/js/main.js?v=260612"></script>
-	<script src="assets/js/proxy.js?v=240920"></script>
-	<script src="assets/js/hydra-main.js?v=251126"></script>
-	<script src="assets/js/hydra.js?v=241203"></script>
 </html>

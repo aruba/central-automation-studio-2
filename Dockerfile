@@ -30,6 +30,7 @@ RUN echo "installing Flask and gunicorn" && \
     pip install requests && \
     pip install -U flask-cors && \
     pip install gunicorn && \
+	pip install oauthlib requests-auth requests-oauthlib && \
     mkdir /central/API && \
     mkdir /central/UI && \
     mkdir /central/apacheconfig
@@ -37,6 +38,7 @@ RUN echo "installing Flask and gunicorn" && \
 # copying over source code
 COPY API /central/API
 COPY UI /usr/local/apache2/htdocs/
+RUN chmod 755 /usr/local/apache2/htdocs/assets/js/plugins/DataTables
 
 # needed for Flask app
 ENV FLASK_APP=api.py
