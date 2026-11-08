@@ -4,8 +4,6 @@ Central Automation Studio uses a Docker container to provide a portable, customi
 
 *Those looking for CAS for Classic Central: https://github.com/aruba/central-automation-studio*
 
-*Those looking for CAS for Classic Central: https://github.com/aruba/central-automation-studio*
-
 Central Automation Studio is a Dockerization of Aaron Scott's Central Automation platform (https://next.wifidownunder.com). <br>
 See https://next.wifidownunder.com/documentation/start.html
 
