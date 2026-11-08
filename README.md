@@ -1,10 +1,9 @@
-# Central Automation Studio (CAS)
+# Central Automation Studio (CAS) version 2
 
 Central Automation Studio uses a Docker container to provide a portable, customizable platform for users to explore Central APIs. <br>
 
-Central Automation Studio is a Dockerization of Aaron Scott's Central Automation platform (https://central.wifidownunder.com). <br>
-Source code by Aaron Scott at https://central.wifidownunder.com/source <br>
-See https://central.wifidownunder.com/documentation.html
+Central Automation Studio is a Dockerization of Aaron Scott's Central Automation platform (https://next.wifidownunder.com). <br>
+See https://next.wifidownunder.com/documentation/start.html
 
 ### Table of Contents
 [Instructions for Use (MacOS/ Linux)](#instructions-linux) <br>
@@ -23,22 +22,22 @@ Note: Using WSL has not been tested.<br>
 1. Install Docker: https://docs.docker.com/get-docker/
 
 2. Pull the image:<br>
-    `sudo docker pull arubahpe/central-automation-studio`
+    `sudo docker pull arubahpe/central-automation-studio-2`
 
 3. Start a container using the image you just built.<br>
     - With HTTP<br>
-        `sudo docker run -it --rm --name containerName -p <port-number>:80 -e API_URL="http://<ip-address>:<port-number>/backend" -e SECURE="False" arubahpe/central-automation-studio`<br>
+        `sudo docker run -it --rm --name containerName -p <port-number>:80 -e API_URL="http://<ip-address>:<port-number>/backend" -e SECURE="False" arubahpe/central-automation-studio-2`<br>
 
         For example: <br>
-        `sudo docker run -it --rm --name myContainer -p 5001:80 -e API_URL="http://192.168.1.200:5001/backend" -e SECURE="False" arubahpe/central-automation-studio` <br>
+        `sudo docker run -it --rm --name CASv2 -p 5001:80 -e API_URL="http://192.168.1.200:5001/backend" -e SECURE="False" arubahpe/central-automation-studio-2` <br>
 
         View your container at the specified IP address, ex: http://192.168.1.200:5001/
 
     - With HTTPS/ SSL enabled. Note that <path-to-ssl-key> and <path-to-ssl-certificate> need to be provided by the user, and are the file paths of the key and certificate, respectively. <br>
-        `sudo docker run -it --rm --name containerName -p 443:443 -e API_URL="https://<ip-address-or-fqdn>/backend" -e SECURE="True" -v <path-to-ssl-key>:/usr/local/apache2/conf/apache-private.key -v <path-to-ssl-certificate>:/usr/local/apache2/conf/apache-cert.crt arubahpe/central-automation-studio`<br>
+        `sudo docker run -it --rm --name containerName -p 443:443 -e API_URL="https://<ip-address-or-fqdn>/backend" -e SECURE="True" -v <path-to-ssl-key>:/usr/local/apache2/conf/apache-private.key -v <path-to-ssl-certificate>:/usr/local/apache2/conf/apache-cert.crt arubahpe/central-automation-studio-2`<br>
 
         For example: <br>
-        `sudo docker run -it --rm --name myContainer -p 443:443 -e API_URL="https://192.168.1.200/backend" -e Verify="True" -e SECURE="True" -v /etc/ssl/private/apache-selfsigned.key:/usr/local/apache2/conf/apache-private.key -v /etc/ssl/certs/apache-selfsigned.crt:/usr/local/apache2/conf/apache-cert.crt arubahpe/central-automation-studio`<br>
+        `sudo docker run -it --rm --name myContainer -p 443:443 -e API_URL="https://192.168.1.200/backend" -e Verify="True" -e SECURE="True" -v /etc/ssl/private/apache-selfsigned.key:/usr/local/apache2/conf/apache-private.key -v /etc/ssl/certs/apache-selfsigned.crt:/usr/local/apache2/conf/apache-cert.crt arubahpe/central-automation-studio-2`<br>
 
         View your container at the specified IP address or FQDN (Fully Qualified Domain Name), ex: https://192.168.1.200/<br>
         For an example of how to quickly set up a self-signed certificate, see **Step 1** of this article: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04. The Common Name should match the IP address in API_URL. Note that if you use a self-signed certificate, you may see an error message; click "Advanced" and proceed anyway.
@@ -62,14 +61,14 @@ Note: Using WSL has not been tested.<br>
 1. Install Docker: https://docs.docker.com/get-docker/. 
 
 2. Pull the image:<br>
-    `docker pull arubahpe/central-automation-studio`
+    `docker pull arubahpe/central-automation-studio-2`
 
 3. Start a container using the image you just pulled.<br>
     - With HTTP<br>
-        `docker run -it --rm --name containerName -p <port-number>:80 -e API_URL="http://<ip-address>:<port-number>/backend" -e Verify="True" -e SECURE="False" arubahpe/central-automation-studio`<br>
+        `docker run -it --rm --name containerName -p <port-number>:80 -e API_URL="http://<ip-address>:<port-number>/backend" -e Verify="True" -e SECURE="False" arubahpe/central-automation-studio-2`<br>
 
         For example: <br>
-        `docker run -it --rm --name myContainer -p 5001:80 -e API_URL="http://192.168.1.200:5001/backend" -e Verify="True" -e SECURE="False" arubahpe/central-automation-studio` <br>
+        `docker run -it --rm --name myContainer -p 5001:80 -e API_URL="http://192.168.1.200:5001/backend" -e Verify="True" -e SECURE="False" arubahpe/central-automation-studio-2` <br>
 
         View your container at the specified IP address, ex: http://192.168.1.200:5001/. The --rm flag means that your container will be removed when it is stopped; if you would like continue running the same exact container, remove the --rm flag. <br>
 
@@ -91,11 +90,11 @@ API: Python, Flask, Flask-CORS, Gunicorn
 
 ### <a name="development"> Useful Commands for Development </a>
 
-Clone the repo here: `git clone https://github.com/aruba/central-automation-studio.git` <br>
+Clone the repo here: `git clone https://github.com/aruba/central-automation-studio-2.git` <br>
 
 To build an image from scratch:<br>
 `sudo docker build --no-cache -t imageRepo .` <br>
-NOTE: On Windows, you will need to change the line endings ___before___ you build the image. Find the file central-automation-studio/start.sh and change the line endings from CRLF (Windows) to LF (Unix). You can do this with a text editor. <br>
+NOTE: On Windows, you will need to change the line endings ___before___ you build the image. Find the file central-automation-studio-2/start.sh and change the line endings from CRLF (Windows) to LF (Unix). You can do this with a text editor. <br>
     Sublime: View -> Line Endings -> Unix <br>
     Notepad++: Edit -> EOL Conversion -> Unix (LF) <br>
     Visual Studio Code: See the bottom right corner -> CRLF -> LF <br>
@@ -111,7 +110,7 @@ To access a container's terminal:<br>
 
 ### <a name="architecture"> Architecture </a>
 UI (Apache) <----> API Proxy (Gunicorn) <----> Aruba Central <br>
-See https://central.wifidownunder.com/documentation.html#architecture-row<br>
+See https://next.wifidownunder.com/documentation/start.html#architecture<br>
 
 
 
